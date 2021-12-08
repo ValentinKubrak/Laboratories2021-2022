@@ -1,0 +1,11 @@
+from PIL import Image, ImageDraw
+
+file = open('DS2.txt')
+image = Image.new("RGBA", (960,540), (0,0,0,0))
+draw = ImageDraw.Draw(image)
+for row in file:
+    temp = row.split(" ")
+    draw.point((int(temp[0]),int(temp[1])), "black")
+del draw
+image.save("result.png", "PNG")
+file.close()
